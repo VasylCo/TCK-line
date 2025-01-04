@@ -170,7 +170,7 @@ export default function Index() {
             <Text style={styles.modalText}>
               3. Отримайте повідомлення з датою та часом вашого візиту.
             </Text>
-            <View style={{ width: '100%', alignItems: 'flex-end' }}>
+            <View style={styles.modalButtonContainer}>
               <Button
                 mode="outlined"
                 style={{ width: 120 }}
@@ -256,5 +256,9 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+  modalButtonContainer: {
+    width: '100%',
+    alignItems: 'flex-end',
   },
 });

@@ -14,6 +14,13 @@ export default function RootLayout() {
           headerTitleAlign: 'center',
         }}
       />
+      <Stack.Screen
+        name="register"
+        options={{
+          title: 'Реєстрація',
+          headerTitleAlign: 'center',
+        }}
+      />
     </Stack>
   );
 }

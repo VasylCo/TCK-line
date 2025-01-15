@@ -48,7 +48,16 @@ export default function ServiceSelect() {
               <Service
                 text={serv.description}
                 key={serv.groupId + i}
-                onPress={() => console.log(serv.groupId)}
+                onPress={() =>
+                  router.push({
+                    pathname: '/register',
+                    params: {
+                      groupId,
+                      serviceCenter,
+                      description: serv.description,
+                    },
+                  })
+                }
               />
             ))}
           <View style={styles.buttonContainer}>

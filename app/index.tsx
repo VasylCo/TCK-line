@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, Modal, Alert, Pressable } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Button, TextInput } from 'react-native-paper';
-import { Picker } from '@react-native-picker/picker';
+import { Button } from 'react-native-paper';
+import { router } from 'expo-router';
+
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { City, Region, ServiceCenter } from '@/dataObjects/interfaces';
@@ -82,7 +83,10 @@ export default function Index() {
         validationSchema={validationSchema}
         enableReinitialize
         onSubmit={(values) => {
-          console.log(values);
+          router.push({
+            pathname: '/service-select',
+            params: values,
+          });
         }}
       >
         {({ handleSubmit, setFieldValue, values, errors, touched }) => (

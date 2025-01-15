@@ -7,6 +7,13 @@ export default function RootLayout() {
         name="index"
         options={{ title: 'ТЦК та СП е-Черга', headerTitleAlign: 'center' }}
       />
+      <Stack.Screen
+        name="service-select"
+        options={{
+          title: 'ТЦК та СП е-Черга',
+          headerTitleAlign: 'center',
+        }}
+      />
     </Stack>
   );
 }

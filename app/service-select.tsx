@@ -52,8 +52,8 @@ export default function ServiceSelect() {
                   router.push({
                     pathname: '/register',
                     params: {
-                      groupId,
                       serviceCenter,
+                      serviceId: serv.serviceId,
                       description: serv.description,
                     },
                   })

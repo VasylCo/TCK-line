@@ -28,9 +28,32 @@ export interface ServiceGroup {
 
 export interface Service extends ServiceGroup {
   isOnlyInform: boolean;
+  serviceId: number;
 }
 
 export interface Services {
   groups: ServiceGroup[];
   services: Service[];
+}
+
+export interface DayWithTimeSlot {
+  datePart: Date;
+  isAllowed: boolean;
+  exclude: number;
+  startTime: string;
+  stopTime: string;
+  hasScheduleBreak: boolean;
+  breakStartTime: string;
+  breakStopTime: string;
+  jobCount: number;
+  allowedJobCount: number;
+  timeSlots: TimeSlot[];
+}
+
+export interface TimeSlot {
+  isAllowed: boolean;
+  startTime: string;
+  stopTime: string;
+  jobCount: number;
+  allowedJobCount: number;
 }

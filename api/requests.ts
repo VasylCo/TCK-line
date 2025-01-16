@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { ServiceCenter, City, Region, Services } from '@/dataObjects/interfaces';
+import { ServiceCenter, City, Region, Services, DayWithTimeSlot } from '@/dataObjects/interfaces';
 
 const apiUrl = process.env.EXPO_PUBLIC_API_URL;
 
@@ -95,6 +95,27 @@ export async function getGroupsAndServices(
     );
     const data = await response.json();
     return data as Services;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function getDaysWithTimeSlots(serviceCenterId: number, serviceId: number) {
+  try {
+    const id =
+      (await AsyncStorage.getItem('organisationId')) || '80a29d6f-51bd-49df-8d21-d31c8f9d6280';
+    const response = await fetch(
+      `${apiUrl}/PreReg/GetDaysWithTimeSlots?ServiceCenterId=${serviceCenterId}&ServiceId=${serviceId}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Organisation: id,
+        },
+      }
+    );
+    const data = await response.json();
+    return data.days as DayWithTimeSlot[];
   } catch (error) {
     console.error(error);
   }

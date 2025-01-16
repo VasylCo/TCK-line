@@ -21,6 +21,13 @@ export default function RootLayout() {
           headerTitleAlign: 'center',
         }}
       />
+      <Stack.Screen
+        name="date-select"
+        options={{
+          title: 'Вібір дати',
+          headerTitleAlign: 'center',
+        }}
+      />
     </Stack>
   );
 }

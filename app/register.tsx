@@ -27,7 +27,7 @@ const validationSchema = Yup.object().shape({
 
 export default function Register() {
   const params = useLocalSearchParams();
-  const { groupId, serviceCenter, description } = params;
+  const { serviceId, serviceCenter, description } = params;
 
   const [modalVisible, setModalVisible] = React.useState(false);
 
@@ -39,12 +39,16 @@ export default function Register() {
         enableReinitialize
         onSubmit={(values) => {
           console.log(values);
-          console.log(groupId);
+          console.log(serviceId);
           console.log(serviceCenter);
-          /* router.push({
-            pathname: '/service-select',
-            params: values,
-          }); */
+          router.push({
+            pathname: '/date-select',
+            params: {
+              description,
+              serviceCenter,
+              serviceId,
+            },
+          });
         }}
       >
         {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
